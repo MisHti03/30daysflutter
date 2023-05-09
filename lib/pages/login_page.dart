@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginPage extends StatefulWidget
- {
+class LoginPage extends StatefulWidget{
   @override
   _LoginPageState createState() => _LoginPageState();
 }
