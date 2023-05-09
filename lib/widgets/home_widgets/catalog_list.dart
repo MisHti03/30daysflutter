@@ -13,14 +13,12 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
+        final catalog = CatalogModel.getByPosition(index);
         return InkWell(
           onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeDetailPage(
-                catalog: catalog,
-              ),
+              builder: (context) => HomeDetailPage(catalog: catalog),
             ),
           ),
           child: CatalogItem(catalog: catalog),
@@ -53,7 +51,7 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
+              catalog.name.text.lg.color(context.accentColor).bold.make(),
               catalog.desc.text.textStyle(context.captionStyle).make(),
               10.heightBox,
               ButtonBar(
@@ -65,19 +63,18 @@ class CatalogItem extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          MyTheme.darkBluishColor,
-                        ),
+                            context.theme.buttonColor),
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
                         )),
                     child: "Add to cart".text.make(),
                   )
                 ],
-              ).pOnly(right: 8.0)
+              ).pOnly(right: 10.0)
             ],
           ))
         ],
       ),
-    ).white.rounded.square(150).make().py16();
+    ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }
