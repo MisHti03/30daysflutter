@@ -14,12 +14,12 @@ class Item {
   Item(this.id, this.name, this.desc, this.price, this.color, this.image);
 
   Item copyWith({
-    int? id,
-    String? name,
-    String? desc,
-    num? price,
-    String? color,
-    String? image,
+    int id,
+    String name,
+    String desc,
+    num price,
+    String color,
+    String image,
   }) {
     return Item(
       id ?? this.id,
