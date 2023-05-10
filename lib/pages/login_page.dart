@@ -4,8 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget{
   @override
-  _LoginPageState createState() => _LoginPageState();
-}
+  _LoginPageState createState() => _LoginPageState();}
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
